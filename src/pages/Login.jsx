@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
 
 const Login = () => {
   const [error, setError] = useState(false);
@@ -12,7 +14,6 @@ const Login = () => {
     const email = e.target[0].value;
     const password = e.target[1].value;
 
-    const auth = getAuth();
     try {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/");
@@ -32,7 +33,9 @@ const Login = () => {
           <button>Sign in</button>
           {error && <span>Something went wrong</span>}
         </form>
-        <p>You don't have an account? Register</p>
+        <p>
+          You don't have an account? <Link to="/register"> Register </Link>{" "}
+        </p>
       </div>
     </div>
   );
