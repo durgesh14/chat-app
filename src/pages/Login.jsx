@@ -1,6 +1,26 @@
 import React from "react";
+import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
+  const [error, setError] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+
+    const auth = getAuth();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/");
+    } catch (error) {
+      setError(true);
+    }
+  };
+
   return (
     <div className="formContainer">
       <div className="formWrapper">
@@ -10,7 +30,7 @@ const Login = () => {
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />
           <button>Sign in</button>
-          {err && <span>Something went wrong</span>}
+          {error && <span>Something went wrong</span>}
         </form>
         <p>You don't have an account? Register</p>
       </div>
