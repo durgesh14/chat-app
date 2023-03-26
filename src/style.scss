@@ -228,6 +228,9 @@
         padding: 10px;
         height: calc(100% - 160px);
         overflow: scroll;
+        &::-webkit-scrollbar {
+          display: none;
+        }
 
         .message {
           display: flex;
