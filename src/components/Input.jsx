@@ -7,6 +7,8 @@ import {
 } from "firebase/firestore";
 import React, { useContext, useState } from "react";
 import profile from "../assets/profile.jpg";
+import camera from "../assets/camera.svg";
+import file from "../assets/file.svg";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import { v4 as uuid } from "uuid";
@@ -20,6 +22,11 @@ const Input = () => {
   const [text, setText] = useState("");
   const [img, setImg] = useState(null);
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSend();
+    }
+  };
   const handleSend = async () => {
     if (img) {
       // Upload file and metadata to the object 'images/mountains.jpg'
@@ -96,12 +103,13 @@ const Input = () => {
     <div className="input">
       <input
         type="text"
-        placeholder="Type something..."
+        placeholder="Say Hii..."
         onChange={(e) => setText(e.target.value)}
         value={text}
+        onKeyDown={handleKeyDown}
       />
       <div className="send">
-        <img src={profile} alt="" />
+        <img src={file} alt="" />
         <input
           type="file"
           style={{ display: "none" }}
@@ -109,7 +117,7 @@ const Input = () => {
           onChange={(e) => setImg(e.target.files[0])}
         />
         <label htmlFor="file">
-          <img src={profile} alt="" />
+          <img src={camera} alt="" />
         </label>
         <button onClick={handleSend}>Send</button>
       </div>

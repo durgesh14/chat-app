@@ -22,6 +22,7 @@ const Register = () => {
     const file = e.target[3].files[0];
 
     const auth = getAuth();
+
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
@@ -68,7 +69,7 @@ const Register = () => {
             });
             await setDoc(doc(db, "users", res.user.uid), {
               uid: res.user.uid,
-              displayName,
+              displayName: displayName.toLowerCase(),
               email,
               photoURL: downloadURL,
             });

@@ -2,6 +2,10 @@ import React, { useContext } from "react";
 import Input from "../components/Input";
 import Messages from "../components/Messages";
 import profile from "../assets/profile.jpg";
+import friend from "../assets/friend.svg";
+import dot from "../assets/dot.svg";
+import video from "../assets/video.svg";
+
 import { ChatContext } from "../context/ChatContext";
 
 const Chat = () => {
@@ -11,9 +15,9 @@ const Chat = () => {
       <div className="chatInfo">
         <span>{data.user?.displayName}</span>
         <div className="chatIcons">
-          <img src={profile} alt="" />
-          <img src={profile} alt="" />
-          <img src={profile} alt="" />
+          <img src={video} alt="" />
+          <img src={friend} alt="" />
+          <img src={dot} alt="" />
         </div>
       </div>
       <Messages />
