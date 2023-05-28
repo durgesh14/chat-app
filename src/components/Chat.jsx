@@ -5,6 +5,7 @@ import profile from "../assets/profile.jpg";
 import friend from "../assets/friend.svg";
 import dot from "../assets/dot.svg";
 import video from "../assets/video.svg";
+import avatar from "../assets/avatar.svg";
 
 import { ChatContext } from "../context/ChatContext";
 
@@ -20,6 +21,7 @@ const Chat = () => {
           <img src={dot} alt="" />
         </div>
       </div>
+      <div className="welcomeScreen">{/* <img src={avatar} alt="" /> */}</div>
       <Messages />
       <Input />
     </div>

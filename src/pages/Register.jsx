@@ -1,4 +1,4 @@
-import profile from "../assets/profile.jpg";
+import profile from "../assets/avatar.svg";
 import { Link, useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
@@ -32,7 +32,7 @@ const Register = () => {
         contentType: "image/jpeg",
       };
 
-      // Upload file and metadata to the object 'images/mountains.jpg'
+      // Upload file and metadata to the object 'images/test.jpg'
       const storageRef = ref(storage, displayName);
       const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
@@ -42,6 +42,7 @@ const Register = () => {
           // A full list of error codes is available at
           // https://firebase.google.com/docs/storage/web/handle-errors
           setError(true);
+          console.log("28/5", error);
           switch (error.code) {
             case "storage/unauthorized":
               // User doesn't have permission to access the object
@@ -61,6 +62,7 @@ const Register = () => {
           }
         },
         () => {
+          console.log("Upload completed successfully");
           // Upload completed successfully, now we can get the download URL
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateProfile(res.user, {
@@ -94,12 +96,14 @@ const Register = () => {
           <input required style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
             <img src={profile} alt="" />
-            <span>Add an avatar</span>
+            <span>Add an avatar*</span>
           </label>
           <button>Sign up</button>
           {error && <span>Something went wrong</span>}
         </form>
-        <p>You do have an account? Login</p>
+        <p>
+          You do have an account? <Link to="/login"> Login </Link>
+        </p>
       </div>
     </div>
   );
