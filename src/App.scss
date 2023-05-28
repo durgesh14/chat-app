@@ -13,6 +13,9 @@
     @content;
   }
 }
+body {
+  margin: unset;
+}
 
 .formContainer {
   background-color: #a7bcff;
