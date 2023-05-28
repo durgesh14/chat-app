@@ -18,7 +18,7 @@ body {
 }
 
 .formContainer {
-  background-color: #a7bcff;
+  background-color: #bacdb0;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@ body {
     align-items: center;
 
     .logo {
-      color: #5d5b8d;
+      color: #729b79;
       font-weight: bold;
       font-size: 24px;
     }
@@ -53,14 +53,14 @@ body {
         padding: 15px;
         border: none;
         width: 250px;
-        border-bottom: 1px solid #a7bcff;
+        border-bottom: 1px solid #729b79;
         &::placeholder {
           color: rgb(175, 175, 175);
         }
       }
 
       button {
-        background-color: #7b96ec;
+        background-color: #729b79;
         color: white;
         padding: 10px;
         font-weight: bold;
@@ -72,7 +72,7 @@ body {
         display: flex;
         align-items: center;
         gap: 10px;
-        color: #8da4f1;
+        color: #729b79;
         font-size: 12px;
         cursor: pointer;
 
