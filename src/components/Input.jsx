@@ -116,9 +116,12 @@ const Input = () => {
           id="file"
           onChange={(e) => setImg(e.target.files[0])}
         />
+        {/* This input field is for selecting an image file to attach to the message. */}
+        {/*  label with an image is used as the clickable element to trigger the file selection dialog. */}
         <label htmlFor="file">
           <img src={camera} alt="" />
         </label>
+        {/* // This button triggers the handleSend function when clicked, which sends the chat message. */}
         <button onClick={handleSend}>Send</button>
       </div>
     </div>

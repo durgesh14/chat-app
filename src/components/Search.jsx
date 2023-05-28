@@ -23,6 +23,7 @@ const Search = () => {
 
   const { currentUser } = useContext(AuthContext);
 
+  // This function queries the database for users whose display name matches the current username in state. If it finds a match, it sets the user state to the found user.
   const handleSearch = async () => {
     const q = query(
       collection(db, "users"),
@@ -38,10 +39,11 @@ const Search = () => {
       setError(true);
     }
   };
+  // This function handles a keypress event. If the key pressed is "Enter", it triggers the handleSearch function.
   const handleKey = (e) => {
     e.code === "Enter" && handleSearch();
   };
-
+  // This function checks whether a chat already exists between the current user and the selected user. If not, it creates a new chat and updates the relevant documents in the database.
   const handleSelect = async () => {
     //check whether the group(chats in firestore) exists, if not create
     const combinedId =

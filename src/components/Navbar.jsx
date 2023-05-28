@@ -6,6 +6,7 @@ import { auth } from "../firebase";
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
+  // Returns the JSX structure for the Navbar component.
   return (
     <div className="navbar">
       <span className="logo">React Chat</span>

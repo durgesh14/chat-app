@@ -7,7 +7,10 @@ import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
 function App() {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext); // Using the useContext React hook to access the current user from the AuthContext.
+
+  // Defining a ProtectedRoute function that checks if there is a logged-in user. If there isn't, it redirects the user to the login page.
+  //If there is, it allows access to the children passed in
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
       return <Navigate to="/login" />;
@@ -15,6 +18,7 @@ function App() {
 
     return children;
   };
+  // Returning a JSX component structure
   return (
     <BrowserRouter>
       <Routes>

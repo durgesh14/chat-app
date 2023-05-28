@@ -6,13 +6,15 @@ const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
 
+  //// Initializing a ref to be used for scrolling into view whenever a new message appears.
   const ref = useRef();
-
+  // Using the useEffect React hook to call scrollIntoView on the div ref whenever the message prop changes,
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
 
   return (
+    // // This div represents a single message. It has a conditional class "owner" if the sender of the message is the current user.
     <div
       ref={ref}
       className={`message ${message.senderId === currentUser.uid && "owner"}`}

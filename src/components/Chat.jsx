@@ -7,10 +7,13 @@ import dot from "../assets/dot.svg";
 import video from "../assets/video.svg";
 import avatar from "../assets/avatar.svg";
 
+// Importing the ChatContext to get access to the chat data within this component.
 import { ChatContext } from "../context/ChatContext";
 
+// The Chat function component represents the main chat interface
 const Chat = () => {
-  const { data } = useContext(ChatContext);
+  const { data } = useContext(ChatContext); // Using the useContext React hook to pull out the data from the ChatContext.
+  // Returns the JSX structure for the Chat component.
   return (
     <div className="chat">
       <div className="chatInfo">
@@ -22,7 +25,10 @@ const Chat = () => {
         </div>
       </div>
       <div className="welcomeScreen">{/* <img src={avatar} alt="" /> */}</div>
+      {/* This is a component that handles the display of chat messages. */}
       <Messages />
+      {/* // This is a component that handles the input of new chat messages.
+       */}
       <Input />
     </div>
   );
